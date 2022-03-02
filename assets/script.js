@@ -48,3 +48,8 @@ n = new Date();
 m = n.getMonth() + 1;
 d = n.getDate();
 document.getElementById("suggestedPairing").innerHTML = `Suggested Pairing: <b>${m}/${d}</b>`;
+
+
+
+
+

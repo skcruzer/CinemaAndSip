@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,12 +8,62 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
   <link rel="stylesheet" href="assets/style.css">
 </head>
-<body class="has-background-dark">
+
+
+<!-- main title of page, title + description -->
+
+<body class="has-background">
 <div id="titleBox" class="container-fluid">
 <div class="box is-size-1 is-size-2-mobile is-family-monospace has-text-weight-bold">
   <h1 id="centerMaintitle">Cinema & Sip</h1>
   <p class="is-size-4 is-size-7-mobile" id="titleDescription">Find the perfect pairing of movie and beverage</p>
 </div>
+
+<!-- background posters div, this is set to z: -1, so it is behind everything below line 26 -->
+
+  <div id="posterBackground" class="columns is-gapless">
+    <div id="movies" class="column is-12"></div>
+  </div>
+
+
+
+<div class="modal" id="modal-js-movies">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Select Movies</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Content ... -->
+      <p>Testing</p>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-success js-modal-trigger" data-target="modal-js-drinks">Next</button>
+      <button class="button">Cancel</button>
+    </footer>
+  </div>
+</div>
+
+<div class="modal" id="modal-js-drinks">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Select Drinks</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Content ... -->
+      <p>Testing</p>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-success js-modal-trigger" data-target="modal-js-drinks">Next</button>
+      <button class="button">Cancel</button>
+    </footer>
+  </div>
+</div>
+
+<!-- suggestion box, columns set to mobile so they will not stack -->
 
 <div id="suggestionBox" class="container-fluid-1">
   <div class="box is-size-3 is-size-4-mobile is-family-monospace">
@@ -20,60 +71,28 @@
     <div class="columns is-mobile">
       <div class="column">
         Film
-        <p><img src="images/sampleimage1.png"></img>
+        <p><img src="images/sampleimg1.png"></img>
           </p>
       </div>
       <div class="column">
         Beverage
-      <p> <img src="images/sampleimage2.png"></img>
+      <p> <img src="images/sampleimg2.png"></img>
         </p>
       </div>
     </div>
   </div>
-<br><br>
-  <button class="js-modal-trigger button is-info is-large is-rounded" data-target="modal-js-movies">
+  
+  <button id="startBtn" class="mt-5 js-modal-trigger button is-info is-large is-rounded" data-target="modal-js-movies">
     Get Started
   </button>
   
-  <div class="modal" id="modal-js-movies">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Select Movies</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
-        <!-- Content ... -->
-        <p>Testing</p>
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button is-success js-modal-trigger" data-target="modal-js-drinks">Next</button>
-        <button class="button">Cancel</button>
-      </footer>
-    </div>
-  </div>
   
-  <div class="modal" id="modal-js-drinks">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Select Drinks</p>
-        <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
-        <!-- Content ... -->
-        <p>Testing</p>
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button is-success js-modal-trigger" data-target="modal-js-drinks">Next</button>
-        <button class="button">Cancel</button>
-      </footer>
-    </div>
-  </div>
-
 
 </div>
+</div>
+</div>
   <script src="assets/script.js"></script>
+  <script src="assets/popularPosters.js" type="module"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 </html>
