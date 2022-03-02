@@ -216,4 +216,4 @@ function selectCateg(x){
 
 //for suggested drink of the day
 var suggestedUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
-getDrink(suggestedUrl);
+// getDrink(suggestedUrl);
