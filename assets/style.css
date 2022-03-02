@@ -1,15 +1,61 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
 
-#titlebox {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container-fluid {
   text-align: center;
 }
 
-.container-fluid-1 {
+/* items with z index of -1 are in the background, those with 1 are in th foreground and can be selected */
+
+/* the animation lowers the opacity of the background posters, to make the suggestions more visible */
+
+
+#posterBack {
+  border: solid black 5px;
+  opacity: 0.35;
+  -webkit-transition: opacity 3s ease-in;
+  -moz-transition: opacity 3s ease-in;
+  -o-transition: opacity 3s ease-in;
+  -ms-transition: opacity 3s ease-in;
+  transition: opacity 3s ease-in;
+}
+
+#posterBackground {
+  z-index: -1;
+  position: fixed;
+}
+
+#startBtn {
+  z-index: 1;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+
+/* animation for the suggestion box to fade in */
+
+.box {
+  background-color: grey;
+  color: black;
+}
+
+#suggestionBox {
   animation: fadeIn 3s;
   -webkit-animation: fadeIn 3s;
   -moz-animation: fadeIn 3s;
   -o-animation: fadeIn 3s;
   -ms-animation: fadeIn 3s;
+  text-align: center;
+  z-index: 1;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 @keyframes fadeIn {
