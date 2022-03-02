@@ -213,3 +213,7 @@ function selectCateg(x){
 //add in click event listener
 //uncomment to test out =>
 // selectCateg(selectedCateg);
+
+//for suggested drink of the day
+var suggestedUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+getDrink(suggestedUrl);
