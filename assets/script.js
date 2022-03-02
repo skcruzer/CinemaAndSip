@@ -68,37 +68,44 @@ function getIngr(x){
       }
       response.json().then(function(data){
         let ingr1 = data.drinks[0].strIngredient1
-          drinkIngr.push(ingr1)
+        let meas1 = data.drinks[0].strMeasure1
+
+        drinkIngr.push({[ingr1]: meas1})
 
         let ingr2 = data.drinks[0].strIngredient2
+        let meas2 = data.drinks[0].strMeasure2
           if (!ingr2){
             return
           }        
-        drinkIngr.push(ingr2)
+        drinkIngr.push({[ingr2]: meas2})
           
         let ingr3 = data.drinks[0].strIngredient3
+        let meas3 = data.drinks[0].strMeasure3
           if (!ingr3){
             return
           }
-        drinkIngr.push(ingr3)
+        drinkIngr.push({[ingr3]: meas3})
 
         let ingr4 = data.drinks[0].strIngredient4
+        let meas4 = data.drinks[0].strMeasure4
           if (!ingr4){
             return
           }
-        drinkIngr.push(ingr4)
+        drinkIngr.push({[ingr4]: meas4})
 
         let ingr5 = data.drinks[0].strIngredient5
+        let meas5 = data.drinks[0].strMeasure5
           if (!ingr5){
             return
           }
-        drinkIngr.push(ingr5)
+        drinkIngr.push({[ingr5]: meas5})
 
         let ingr6 = data.drinks[0].strIngredient6
+        let meas6 = data.drinks[0].strMeasure6
           if (!ingr6){
             return
           }
-        drinkIngr.push(ingr6)
+        drinkIngr.push({[ingr6]: meas6})
 
       });
     }
