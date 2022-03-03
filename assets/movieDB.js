@@ -67,6 +67,12 @@ function singleMovsuggestion(movie) {
 
 }
 
+
+
+
+
+
+
 //this will run when the page is loaded
 
 function App() {
