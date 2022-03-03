@@ -265,7 +265,9 @@ function getDrink(suggestedUrl){
       //creates img src for each suggested drink
       response.json().then(function(data){
         drinkSug.innerHTML = 
-        `<img src="${data.drinks[0].strDrinkThumb}" id="randomDrinkSuggestion" class="img-fluid">`
+        `<img src="${data.drinks[0].strDrinkThumb}" id="randomDrinkSuggestion" class="img-fluid">
+        <div id="suggestedMovieName" style="font-size: 24px">${data.drinks[0].strDrink}</div>
+        `
         console.log(data);
       });
     }

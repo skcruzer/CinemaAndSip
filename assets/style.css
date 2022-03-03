@@ -47,20 +47,21 @@ body, html {
   left: 50%;
   transform: translate(-50%, 0);
   animation: blinker 4s infinite;
-  background-color: orange;
+  background-color: rgb(29, 185, 169);
+  color: white;
 }
 
 @keyframes blinker {
   50% {
-    background-color: orangered;
+    background-color: rgb(46, 116, 196);
   }
 }
 
 /* animation for the suggestion box to fade in */
 
 .box {
-  background-color: grey;
-  color: black;
+  background-color: rgb(1, 22, 39);
+  color: white;
 }
 
 #suggestionPoster {
@@ -72,6 +73,7 @@ body, html {
   width: 274px;
   border: solid black 3px;
 }
+
 
 #suggestionBox {
   animation: fadeIn 3s;
@@ -144,6 +146,47 @@ body, html {
   -moz-animation: fadeIn 1s;
   -o-animation: fadeIn 1s;
   -ms-animation: fadeIn 1s;
+}
+
+#navbarSearch {
+  margin: 1rem;
+}
+
+#navbar-menu {
+  font-weight: 500;
+  margin-right: 0.2rem;
+
+}
+
+#navbar-drop {
+  margin-right: 0.2rem;
+}
+
+.navbar-item:hover .navbar-dropdown {
+  display: block;
+}
+
+#next-btn {
+  background-color: rgb(48, 134, 205);
+}
+
+#we-decide-btn {
+  background-color: lightslategray;
+  color: white;
+}
+
+#categories-list {
+  padding-right: 1.4rem;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+#footer {
+  margin-top: 20rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 @keyframes fadeIn {
