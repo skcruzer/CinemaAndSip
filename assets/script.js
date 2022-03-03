@@ -244,7 +244,7 @@ function getDrink(suggestedUrl){
   getIngr(suggestedUrl);
   console.log(drinkIngr)
 }
-=======
+
 // selectCateg(selectedCateg);
 
 //for suggested drink of the day
