@@ -47,20 +47,21 @@ body, html {
   left: 50%;
   transform: translate(-50%, 0);
   animation: blinker 4s infinite;
-  background-color: orange;
+  background-color: rgb(29, 185, 169);
+  color: white;
 }
 
 @keyframes blinker {
   50% {
-    background-color: orangered;
+    background-color: rgb(46, 116, 196);
   }
 }
 
 /* animation for the suggestion box to fade in */
 
 .box {
-  background-color: grey;
-  color: black;
+  background-color: rgb(1, 22, 39);
+  color: white;
 }
 
 #suggestionPoster {
@@ -72,6 +73,7 @@ body, html {
   width: 274px;
   border: solid black 3px;
 }
+
 
 #suggestionBox {
   animation: fadeIn 3s;
