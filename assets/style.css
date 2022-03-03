@@ -1,6 +1,215 @@
 /* <div class="modal"><div class="modal-background"></div><div class="modal-content">< !-- Any other Bulma elements you want --></div><button class="modal-close is-large"aria-label="close"></button></div>
 div{ */
-  .NewTaste{
-    text-align: center;
-    font-size: 25px;
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container-fluid {
+  text-align: center;
+}
+
+/* items with z index of -1 are in the background, those with 1 are in th foreground and can be selected */
+
+/* the animation lowers the opacity of the background posters, to make the suggestions more visible */
+
+
+#posterBack {
+  border: solid black 5px;
+  opacity: 0.35;
+  -webkit-transition: opacity 3s ease-in;
+  -moz-transition: opacity 3s ease-in;
+  -o-transition: opacity 3s ease-in;
+  -ms-transition: opacity 3s ease-in;
+  transition: opacity 3s ease-in;
+}
+
+#posterBackground {
+  z-index: -1;
+  position: fixed;
+}
+
+#startBtn {
+  z-index: 1;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+
+/* animation for the suggestion box to fade in */
+
+.box {
+  background-color: grey;
+  color: black;
+}
+
+#suggestionBox {
+  animation: fadeIn 3s;
+  -webkit-animation: fadeIn 3s;
+  -moz-animation: fadeIn 3s;
+  -o-animation: fadeIn 3s;
+  -ms-animation: fadeIn 3s;
+  text-align: center;
+  z-index: 1;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
   }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+#modal-js-movies {
+  animation: fadeIn 1s;
+  -webkit-animation: fadeIn 1s;
+  -moz-animation: fadeIn 1s;
+  -o-animation: fadeIn 1s;
+  -ms-animation: fadeIn 1s;
+}
+
+#navbarSearch {
+  margin: 1rem;
+}
+
+#navbar-menu {
+  font-weight: 500;
+  margin-right: 0.2rem;
+
+}
+
+#navbar-drop {
+  margin-right: 0.2rem;
+}
+
+.navbar-item:hover .navbar-dropdown {
+  display: block;
+}
+
+#getStartedBtn {
+  margin-top: 2.0rem;
+}
+
+#dropdown-categories {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+#categories-button {
+  margin-top: 2rem;
+}
+
+#categories-list {
+  padding-right: 1.4rem;
+  font-weight: 700;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+#footer {
+  margin-top: 50rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
