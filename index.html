@@ -66,23 +66,22 @@
 <!-- suggestion box, columns set to mobile so they will not stack -->
 
 <div id="suggestionBox" class="container-fluid-1">
-  <div class="box is-size-3 is-size-4-mobile is-family-monospace">
+  <div class="box is-size-3 is-family-monospace">
     <h1 id="suggestedPairing"></h1>
-    <div class="columns is-mobile">
+    <div class="columns">
       <div class="column">
         Film
-        <p><img src="images/sampleimg1.png"></img>
-          </p>
+        <p><div id="suggestedMovie"></div></p>
       </div>
       <div class="column">
         Beverage
-      <p> <img src="images/sampleimg2.png"></img>
-        </p>
+      <p><div id="drinkSuggestion"></div>
+      </p>
       </div>
     </div>
   </div>
   
-  <button id="startBtn" class="mt-5 js-modal-trigger button is-info is-large is-rounded" data-target="modal-js-movies">
+  <button id="startBtn" class="mt-5 js-modal-trigger button is-large is-rounded" data-target="modal-js-movies">
     Get Started
   </button>
   

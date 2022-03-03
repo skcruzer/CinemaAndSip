@@ -212,8 +212,42 @@ function selectCateg(x){
 
 //add in click event listener
 //uncomment to test out =>
+
+selectCateg(selectedCateg);
+
+//for suggested drink of the day
+var suggestedUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+// getDrink(suggestedUrl);
+
+//uses random suggestedUrl to display random drink picture in the suggested pairing suggestion
+var drinkSug = document.getElementById('drinkSuggestion')
+function getDrink(suggestedUrl){
+  fetch(suggestedUrl)
+  .then(
+    function(response){
+      if (response.status !== 200){
+        console.log("looks like there was a problem");
+        return ;
+      }
+
+      //creates img src for each suggested drink
+      response.json().then(function(data){
+        drinkSug.innerHTML = 
+        `<img src="${data.drinks[0].strDrinkThumb}" id="randomDrinkSuggestion" class="img-fluid">`
+        console.log(data);
+      });
+    }
+  )
+  .catch(function(err){
+    console.log("fetch error," + err);
+  });
+  getIngr(suggestedUrl);
+  console.log(drinkIngr)
+}
+=======
 // selectCateg(selectedCateg);
 
 //for suggested drink of the day
 var suggestedUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
 // getDrink(suggestedUrl);
+
