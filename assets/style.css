@@ -236,3 +236,8 @@ body, html {
     opacity: 1;
   }
 }
+
+#centerMaintitle {
+   font-family: 'Playfair Display', serif;
+  ;
+}
