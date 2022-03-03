@@ -146,6 +146,47 @@ body, html {
   -ms-animation: fadeIn 1s;
 }
 
+#navbarSearch {
+  margin: 1rem;
+}
+
+#navbar-menu {
+  font-weight: 500;
+  margin-right: 0.2rem;
+
+}
+
+#navbar-drop {
+  margin-right: 0.2rem;
+}
+
+.navbar-item:hover .navbar-dropdown {
+  display: block;
+}
+
+#next-btn {
+  background-color: rgb(48, 134, 205);
+}
+
+#we-decide-btn {
+  background-color: lightslategray;
+  color: white;
+}
+
+#categories-list {
+  padding-right: 1.4rem;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+#footer {
+  margin-top: 20rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
