@@ -247,3 +247,26 @@ body, html {
 #titleDescription {
   font-family: 'Playfair Display', serif;
 }
+/* testimonials */
+.testimonials{
+  width: 80%;
+  margin: auto;
+  padding-top: 100px;
+  text-align: center;
+}
+.testimonials-col{
+  flex-basis: 45%;
+  border-radius: 10%;
+  margin-bottom: 5%;
+  text-align: left;
+  background: #ece7e7f5;
+  padding: 25px;
+  cursor: pointer;
+  display: flex;
+}
+.testimonials-col img{
+  height: 40px;
+  margin-left: 5px;
+  margin-right: 30px;
+  border-radius: 50%;
+}
