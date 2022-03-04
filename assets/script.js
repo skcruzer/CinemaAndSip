@@ -66,7 +66,7 @@ function getIngr(x){
         console.log("looks like there was a problem");
         return;
       }
-      response.json().then(function(data){
+      response.json().then(function(data){        
         let ingr1 = data.drinks[0].strIngredient1
         let meas1 = data.drinks[0].strMeasure1
 
@@ -75,37 +75,37 @@ function getIngr(x){
         let ingr2 = data.drinks[0].strIngredient2
         let meas2 = data.drinks[0].strMeasure2
           if (!ingr2){
-            return
+            return 
           }        
         drinkIngr.push({[ingr2]: meas2})
-          
+                 
         let ingr3 = data.drinks[0].strIngredient3
         let meas3 = data.drinks[0].strMeasure3
           if (!ingr3){
-            return
+            return 
           }
         drinkIngr.push({[ingr3]: meas3})
 
         let ingr4 = data.drinks[0].strIngredient4
         let meas4 = data.drinks[0].strMeasure4
           if (!ingr4){
-            return
+            return 
           }
         drinkIngr.push({[ingr4]: meas4})
 
         let ingr5 = data.drinks[0].strIngredient5
         let meas5 = data.drinks[0].strMeasure5
           if (!ingr5){
-            return
+            return 
           }
         drinkIngr.push({[ingr5]: meas5})
 
         let ingr6 = data.drinks[0].strIngredient6
         let meas6 = data.drinks[0].strMeasure6
           if (!ingr6){
-            return
+            return 
           }
-        drinkIngr.push({[ingr6]: meas6})
+        drinkIngr.push({ingr6: meas6})
 
       });
     }
@@ -264,9 +264,18 @@ function getDrink(suggestedUrl){
 
       //creates img src for each suggested drink
       response.json().then(function(data){
+
+        getIngr(suggestedUrl); 
+        console.log(drinkIngr);
+        
+        
+        console.log(drinkIngr.length);
+        
+        
+
         drinkSug.innerHTML = 
-        `<img src="${data.drinks[0].strDrinkThumb}" id="randomDrinkSuggestion" class="img-fluid">
-        <div id="suggestedMovieName" style="font-size: 24px">${data.drinks[0].strDrink}</div>
+        `<img src="${data.drinks[0].strDrinkThumb}" id="randomDrinkSuggestion" class="tooltip img-fluid">
+        <div id="suggestedDrinkName" class="has-tooltipl-multiline" style="font-size: 24px" data-tooltip="Inserted Tooltip">${data.drinks[0].strDrink}</div>
         `
         console.log(data);
       });
@@ -275,6 +284,5 @@ function getDrink(suggestedUrl){
   .catch(function(err){
     console.log("fetch error," + err);
   });
-  getIngr(suggestedUrl);
-  console.log(drinkIngr)
+  
 }
