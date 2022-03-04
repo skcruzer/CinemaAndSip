@@ -58,62 +58,6 @@ let drinkImg
 let drinkIngr = []
 let drinkInstr
 
-function getIngr(x){
-  fetch(x)
-  .then(
-    function(response){
-      if (response.status !== 200){
-        console.log("looks like there was a problem");
-        return;
-      }
-      response.json().then(function(data){
-        let ingr1 = data.drinks[0].strIngredient1
-        let meas1 = data.drinks[0].strMeasure1
-
-        drinkIngr.push({[ingr1]: meas1})
-
-        let ingr2 = data.drinks[0].strIngredient2
-        let meas2 = data.drinks[0].strMeasure2
-          if (!ingr2){
-            return
-          }        
-        drinkIngr.push({[ingr2]: meas2})
-          
-        let ingr3 = data.drinks[0].strIngredient3
-        let meas3 = data.drinks[0].strMeasure3
-          if (!ingr3){
-            return
-          }
-        drinkIngr.push({[ingr3]: meas3})
-
-        let ingr4 = data.drinks[0].strIngredient4
-        let meas4 = data.drinks[0].strMeasure4
-          if (!ingr4){
-            return
-          }
-        drinkIngr.push({[ingr4]: meas4})
-
-        let ingr5 = data.drinks[0].strIngredient5
-        let meas5 = data.drinks[0].strMeasure5
-          if (!ingr5){
-            return
-          }
-        drinkIngr.push({[ingr5]: meas5})
-
-        let ingr6 = data.drinks[0].strIngredient6
-        let meas6 = data.drinks[0].strMeasure6
-          if (!ingr6){
-            return
-          }
-        drinkIngr.push({[ingr6]: meas6})
-
-      });
-    }
-  )
-  .catch(function(err){
-    console.log("fetch error," + err);
-  });
-}
 
 function getDrink(x){
   fetch(x)
@@ -142,8 +86,7 @@ function getDrink(x){
   .catch(function(err){
     console.log("fetch error," + err);
   });
-  getIngr(x);
-  console.log(drinkIngr)
+  
 }
 
 
@@ -216,34 +159,33 @@ function selectCateg(x){
 selectCateg(selectedCateg);
 
 //for suggested drink of the day
-var suggestedUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+// var suggestedUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
 // getDrink(suggestedUrl);
 
 //uses random suggestedUrl to display random drink picture in the suggested pairing suggestion
-var drinkSug = document.getElementById('drinkSuggestion')
-function getDrink(suggestedUrl){
-  fetch(suggestedUrl)
-  .then(
-    function(response){
-      if (response.status !== 200){
-        console.log("looks like there was a problem");
-        return ;
-      }
+// var drinkSug = document.getElementById('drinkSuggestion')
+// function getDrink(suggestedUrl){
+//   fetch(suggestedUrl)
+//   .then(
+//     function(response){
+//       if (response.status !== 200){
+//         console.log("looks like there was a problem");
+//         return ;
+//       }
 
-      //creates img src for each suggested drink
-      response.json().then(function(data){
-        drinkSug.innerHTML = 
-        `<img src="${data.drinks[0].strDrinkThumb}" id="randomDrinkSuggestion" class="img-fluid">`
-        console.log(data);
-      });
-    }
-  )
-  .catch(function(err){
-    console.log("fetch error," + err);
-  });
-  getIngr(suggestedUrl);
-  console.log(drinkIngr)
-}
+//       //creates img src for each suggested drink
+//       response.json().then(function(data){
+//         drinkSug.innerHTML = 
+//         `<img src="${data.drinks[0].strDrinkThumb}" id="randomDrinkSuggestion" class="img-fluid">`
+//         console.log(data);
+//       });
+//     }
+//   )
+//   .catch(function(err){
+//     console.log("fetch error," + err);
+//   });
+ 
+// }
 
 // selectCateg(selectedCateg);
 
@@ -264,10 +206,33 @@ function getDrink(suggestedUrl){
 
       //creates img src for each suggested drink
       response.json().then(function(data){
+        
+        const drinkEntries = Object.entries(data.drinks[0])
+          ingredientsArray = drinkEntries
+          .filter(([key, value]) => key.startsWith("strIngredient") && value && value.trim())
+          .map(([key, value]) => value),
+          measuresArray = drinkEntries
+          .filter(([key, value]) => key.startsWith("strMeasure") && value && value.trim())
+          .map(([key, value]) => value);
+        
+        
+        var toolTipHTML = ``;
+        // also for loop thru ingredients.length
+        for (i=0; i< ingredientsArray.length; i++){
+          if(ingredientsArray[i] && !measuresArray[i]){
+            toolTipHTML = toolTipHTML + ingredientsArray[i] + "&#10;"
+          } else if (ingredientsArray[i] && measuresArray[i]) {
+            toolTipHTML = toolTipHTML + measuresArray[i] + "- "+ ingredientsArray[i] + "&#10;"
+          }
+        }
+        console.log(toolTipHTML);
+        
+
         drinkSug.innerHTML = 
-        `<img src="${data.drinks[0].strDrinkThumb}" id="randomDrinkSuggestion" class="img-fluid">
-        <div id="suggestedMovieName" style="font-size: 24px">${data.drinks[0].strDrink}</div>
-        `
+        `<img src="${data.drinks[0].strDrinkThumb}" id="randomDrinkSuggestion" class="tooltip img-fluid">
+        <div id="suggestedDrinkName" class="has-tooltipl-multiline" style="font-size: 24px" data-tooltip="`+ toolTipHTML + `">${data.drinks[0].strDrink}</div>`
+
+
         console.log(data);
       });
     }
@@ -275,7 +240,6 @@ function getDrink(suggestedUrl){
   .catch(function(err){
     console.log("fetch error," + err);
   });
-  getIngr(suggestedUrl);
-  console.log(drinkIngr)
+  
 }
 
