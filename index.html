@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CinemaAndSip V1</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@creativebulma/bulma-tooltip@1.0.2/dist/bulma-tooltip.min.css">
   <script src="https://kit.fontawesome.com/def4d34cce.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -55,6 +54,7 @@
 <div class="box is-size-1 is-size-2-mobile is-family-monospace has-text-weight-bold">
   <h1 id="centerMaintitle">Cinema & Sip</h1>
   <p class="is-size-4 is-size-7-mobile" id="titleDescription">Find the perfect pairing of movie and beverage</p>
+  
 </div>
 
 <!-- background posters div, this is set to z: -1, so it is behind everything below line 26 -->
@@ -63,14 +63,12 @@
     <div id="movies" class="column is-12"></div>
   </div>
 
-
-
 <!-- modal for movies -->
 <div class="modal" id="modal-js-movies">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title">Get Suggestions from Keyword</p>
+      <p class="modal-card-title">Choose Movie Genre</p>
       <button class="delete" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
@@ -78,8 +76,21 @@
         <div class="control is-expanded">
 
           <form method="post" class="form" id="movieSearchbar">
-          <input class="input" name="movieInput" id="movie-search" type="text" placeholder="enter name, genre, phrase">
-          <!-- <button class="button is-success js-modal-trigger" data-target="modal-js-suggested-pairs" id="next-btn" type="submit">Next</button> -->
+          
+            <!-- movie dropdown selection, value is equal to genre ID -->
+          <select name="movieDropdown" id="movieDropdown">
+            <option value="">--select--</option>
+            <option value="28">Action</option>
+            <option value="35">Comedy</option>
+            <option value="18">Drama</option>
+            <option value="16">Animation</option>
+            <option value="27">Horror</option>
+            <option value="12">Adventure</option>
+            <option value="878">Science Fiction</option>
+            <option value="99">Documentary</option>
+            <option value="37">Western</option>
+            <option value="53">Thriller</option>
+          </select>
           
         </div>
       </div>
@@ -203,6 +214,8 @@
 
   <script src="assets/script.js"></script>
   <script src="assets/movieDB.js" type="module"></script>
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@creativebulma/bulma-tooltip@1.0.2/dist/bulma-tooltip.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 </html>
