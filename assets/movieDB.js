@@ -58,7 +58,6 @@ function singlePoster(movie) {
 
 }
 function singleMovsuggestion(movie) {
-  console.log(config.api_base_url + movie.original_title)
   return (
     `
             <img src="${config.image_base_url + movie?.poster_path}" id="suggestionPoster" class="img-fluid">
@@ -69,15 +68,25 @@ function singleMovsuggestion(movie) {
   )
 
 }
+
+
+//takes text and value for dropdown movie menu, each text corresponds to a genre id
+//value is equal to the dropdown selection, link + value pulls up popular movies from the selected genre
+const element = document.getElementById("movieDropdown");
+
+const checkValue = element.options[element.selectedIndex].value;
+const checkText = element.options[element.selectedIndex].text;
+
+element.addEventListener("change", (e) => {
+  const value = e.target.value;
+  const text = element.options[element.selectedIndex].text;
+  console.log(value)
+
 document.querySelector('form.form').addEventListener('submit', function (e) {
   e.preventDefault();
-  let x = document.querySelector('form.form').elements;
-  console.log("movieUserInput: ", x['movieInput'].value);
-  const userMovieinput = (x['movieInput'].value);
-  document.getElementById('movieSearchbar').reset();
-  
-  
-  var movieMultisearch = "https://api.themoviedb.org/3/search/movie?api_key=8bb7ff26c787b44f4d7c77a6ef8dfb70&language=en-US&page=1&include_adult=false&query=" + userMovieinput
+  var movieMultisearch = "https://api.themoviedb.org/3/discover/movie?api_key=8bb7ff26c787b44f4d7c77a6ef8dfb70&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=free&with_genres=" + value
+
+  //movie recommendation boxes
   const movieRecbox1 = document.getElementById('movieRec1')
   const movieRecbox2 = document.getElementById('movieRec2')
   const movieRecbox3 = document.getElementById('movieRec3')
@@ -90,6 +99,8 @@ document.querySelector('form.form').addEventListener('submit', function (e) {
           console.log("looks like there was a problem")
           return
         }
+
+        //individual movie suggestion boxes
         response.json().then(function (data) {
           movieRecbox1.innerHTML = 
         `
@@ -131,7 +142,7 @@ document.querySelector('form.form').addEventListener('submit', function (e) {
       console.log("fetch error," + err);
     });
 });
-
+});
 
 //this will run when the page is loaded
 function App() {

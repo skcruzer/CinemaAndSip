@@ -51,7 +51,7 @@ document.getElementById("suggestedPairing").innerHTML = `Suggested Pairing: <b>$
 
 
 //find drink through keyword
-  //take search input value
+//take search input value
 
 let drinkName
 let drinkImg
@@ -59,44 +59,44 @@ let drinkIngr = []
 let drinkInstr
 
 
-function getDrink(x){
+function getDrink(x) {
   fetch(x)
-  .then(
-    function(response){
-      if (response.status !== 200){
-        console.log("looks like there was a problem");
-        return;
+    .then(
+      function (response) {
+        if (response.status !== 200) {
+          console.log("looks like there was a problem");
+          return;
+        }
+        response.json().then(function (data) {
+          console.log(data);
+
+          drinkName = data.drinks[0].strDrink
+          console.log(drinkName)
+
+          drinkImg = data.drinks[0].strDrinkThumb
+          console.log(drinkImg)
+
+          drinkInstr = data.drinks[0].strInstructions
+          console.log(drinkInstr)
+
+
+        });
       }
-      response.json().then(function(data){
-        console.log(data);
+    )
+    .catch(function (err) {
+      console.log("fetch error," + err);
+    });
 
-        drinkName = data.drinks[0].strDrink
-        console.log(drinkName)
-
-        drinkImg = data.drinks[0].strDrinkThumb
-        console.log(drinkImg)
-
-        drinkInstr = data.drinks[0].strInstructions
-        console.log(drinkInstr)
-        
-
-      });
-    }
-  )
-  .catch(function(err){
-    console.log("fetch error," + err);
-  });
-  
 }
 
 
 //getDrink through search value
-var drinkInputValue = "margarita"    
+var drinkInputValue = "margarita"
 
-function inputDrinkName(x){
+function inputDrinkName(x) {
   var searchDrink = x
   var searchUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + searchDrink
-  
+
   getDrink(searchUrl)
 }
 
@@ -107,46 +107,46 @@ function inputDrinkName(x){
 
 
 //random drink from selected category
-  //take category input from dropdown
-  //top ingrdients are vodka, gin, rum, tequila, etc. 
+//take category input from dropdown
+//top ingrdients are vodka, gin, rum, tequila, etc. 
 // var selectedCat = ... input value
 //ex: 
 var selectedCateg = "vodka"
 
 //randomizie selected drink from within category
-function getDrinkFromCateg(x){
+function getDrinkFromCateg(x) {
   fetch(x)
-  .then(
-    function(response){
-      if (response.status !== 200){
-        console.log("looks like there was a problem");
-        return;
+    .then(
+      function (response) {
+        if (response.status !== 200) {
+          console.log("looks like there was a problem");
+          return;
+        }
+        response.json().then(function (data) {
+          // console.log(data);
+
+          let random = Math.floor(Math.random() * data.drinks.length);
+
+          let randomID = data.drinks[random].idDrink
+
+          // console.log(data.drinks[random])
+          // console.log(randomID)
+
+          let randomDrink = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + randomID;
+
+          getDrink(randomDrink)
+
+        });
       }
-      response.json().then(function(data){
-        // console.log(data);
-        
-        let random = Math.floor(Math.random() * data.drinks.length);
-        
-        let randomID = data.drinks[random].idDrink
+    )
+    .catch(function (err) {
+      console.log("fetch error," + err);
+    });
 
-        // console.log(data.drinks[random])
-        // console.log(randomID)
-        
-        let randomDrink = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + randomID;
-          
-        getDrink(randomDrink)
-
-      });
-    }
-  )
-  .catch(function(err){
-    console.log("fetch error," + err);
-  });
-  
 }
 
 //input selected Category
-function selectCateg(x){
+function selectCateg(x) {
   var drinkCateg = x
   var categUrl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + drinkCateg;
 
@@ -184,7 +184,7 @@ selectCateg(selectedCateg);
 //   .catch(function(err){
 //     console.log("fetch error," + err);
 //   });
- 
+
 // }
 
 // selectCateg(selectedCateg);
@@ -195,51 +195,50 @@ var suggestedUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
 
 //uses random suggestedUrl to display random drink picture in the suggested pairing suggestion
 var drinkSug = document.getElementById('drinkSuggestion')
-function getDrink(suggestedUrl){
+function getDrink(suggestedUrl) {
   fetch(suggestedUrl)
-  .then(
-    function(response){
-      if (response.status !== 200){
-        console.log("looks like there was a problem");
-        return ;
-      }
-
-      //creates img src for each suggested drink
-      response.json().then(function(data){
-        
-        const drinkEntries = Object.entries(data.drinks[0])
-          ingredientsArray = drinkEntries
-          .filter(([key, value]) => key.startsWith("strIngredient") && value && value.trim())
-          .map(([key, value]) => value),
-          measuresArray = drinkEntries
-          .filter(([key, value]) => key.startsWith("strMeasure") && value && value.trim())
-          .map(([key, value]) => value);
-        
-        
-        var toolTipHTML = ``;
-        // also for loop thru ingredients.length
-        for (i=0; i< ingredientsArray.length; i++){
-          if(ingredientsArray[i] && !measuresArray[i]){
-            toolTipHTML = toolTipHTML + ingredientsArray[i] + "&#10;"
-          } else if (ingredientsArray[i] && measuresArray[i]) {
-            toolTipHTML = toolTipHTML + measuresArray[i] + "- "+ ingredientsArray[i] + "&#10;"
-          }
+    .then(
+      function (response) {
+        if (response.status !== 200) {
+          console.log("looks like there was a problem");
+          return;
         }
-        console.log(toolTipHTML);
-        
 
-        drinkSug.innerHTML = 
-        `<img src="${data.drinks[0].strDrinkThumb}" id="randomDrinkSuggestion" class="tooltip img-fluid">
+        //creates img src for each suggested drink
+        response.json().then(function (data) {
+
+          const drinkEntries = Object.entries(data.drinks[0])
+          ingredientsArray = drinkEntries
+            .filter(([key, value]) => key.startsWith("strIngredient") && value && value.trim())
+            .map(([key, value]) => value),
+            measuresArray = drinkEntries
+              .filter(([key, value]) => key.startsWith("strMeasure") && value && value.trim())
+              .map(([key, value]) => value);
+
+
+          var toolTipHTML = ``;
+          // also for loop thru ingredients.length
+          for (i = 0; i < ingredientsArray.length; i++) {
+            if (ingredientsArray[i] && !measuresArray[i]) {
+              toolTipHTML = toolTipHTML + ingredientsArray[i] + "&#10;"
+            } else if (ingredientsArray[i] && measuresArray[i]) {
+              toolTipHTML = toolTipHTML + measuresArray[i] + "- " + ingredientsArray[i] + "&#10;"
+            }
+          }
+          console.log(toolTipHTML);
+
+
+          drinkSug.innerHTML =
+            `<img src="${data.drinks[0].strDrinkThumb}" id="randomDrinkSuggestion" class="tooltip img-fluid">
         <div id="suggestedDrinkName" class="has-tooltipl-multiline" style="font-size: 24px" data-tooltip="`+ toolTipHTML + `">${data.drinks[0].strDrink}</div>`
 
 
-        console.log(data);
-      });
-    }
-  )
-  .catch(function(err){
-    console.log("fetch error," + err);
-  });
-  
-}
+          console.log(data);
+        });
+      }
+    )
+    .catch(function (err) {
+      console.log("fetch error," + err);
+    });
 
+}
