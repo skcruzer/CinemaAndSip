@@ -37,13 +37,13 @@ export async function currentPopular(page = randomPopularPage) {
 
 export async function presentPosters() {
   const movies = await currentPopular()
-  console.log(homeScreenbg)
+  // console.log(homeScreenbg)
   homeScreenbg.innerHTML = movies?.map((movie) => singlePoster(movie)).join("")
 
 // movie suggestion is also taken from popular movies, a movie is randomly selected from the 12 movies that are loaded every time
 
   suggestedMovie.innerHTML = movies?.map((movie) => singleMovsuggestion(movie))[randomPopularPage]
-  console.log(suggestedMovie)
+  // console.log(suggestedMovie)
 }
 
 function singlePoster(movie) {
