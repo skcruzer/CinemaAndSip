@@ -58,7 +58,7 @@ function singlePoster(movie) {
 
 }
 function singleMovsuggestion(movie) {
-  console.log(config.api_base_url + movie.original_title)
+  // console.log(config.api_base_url + movie.original_title)
   return (
     `
             <img src="${config.image_base_url + movie?.poster_path}" id="suggestionPoster" class="img-fluid">

@@ -229,7 +229,7 @@ function getDrink(suggestedUrl){
         
 
         drinkSug.innerHTML = 
-        `<img src="${data.drinks[0].strDrinkThumb}" id="randomDrinkSuggestion" class="tooltip img-fluid">
+        `<img src="${data.drinks[0].strDrinkThumb}" id="randomDrinkSuggestion" class="img-fluid">
         <div id="suggestedDrinkName" class="has-tooltipl-multiline" style="font-size: 24px" data-tooltip="`+ toolTipHTML + `">${data.drinks[0].strDrink}</div>`
 
 
@@ -243,3 +243,73 @@ function getDrink(suggestedUrl){
   
 }
 
+
+document.getElementById("choose-alc").addEventListener('click', function (e){ 
+  e.preventDefault();
+
+  let userDrinkInput = document.getElementById("chosen-category").value;
+  console.log("userDrinkInput:", userDrinkInput)
+
+  let userCategUrl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + userDrinkInput;
+  console.log(userCategUrl)
+
+  fetch(userCategUrl)
+  .then(
+    function(response){
+      if (response.status !== 200){
+        console.log("looks like there was a problem");
+        return;
+      }
+      response.json().then(function(data){
+        // console.log(data);
+        
+        let random = Math.floor(Math.random() * data.drinks.length);
+        
+        let randomCategID = data.drinks[random].idDrink
+
+        // console.log(data.drinks[random])
+        console.log(randomCategID)
+        
+        let randomCategDrink = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + randomCategID;
+        console.log(randomCategDrink)
+          
+        function getCategDrink(x){
+          fetch(x)
+          .then(
+            function(response){
+              if (response.status !== 200){
+                console.log("looks like there was a problem");
+                return;
+              }
+              response.json().then(function(data){
+                console.log(data);
+
+                drinkName1 = data.drinks[0].strDrink
+                drinkImg1 = data.drinks[0].strDrinkThumb
+                document.getElementById("drinkRec1").innerHTML = 
+                `<img src="` + drinkImg1 + `" id="suggDrink1Img" class="img-fluid">
+                <div id="suggDrink1Name" class="has-tooltipl-multiline" style="font-size: 24px">` + drinkName1 + `</div>`
+                
+                
+
+
+              });
+            }
+          )
+          .catch(function(err){
+            console.log("fetch error," + err);
+          });
+          
+        }
+        getCategDrink(randomCategDrink);
+        
+
+      });
+    }
+  )
+  .catch(function(err){
+    console.log("fetch error," + err);
+  });
+   
+
+})
