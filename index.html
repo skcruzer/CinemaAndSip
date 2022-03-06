@@ -96,7 +96,7 @@
       </div>
     </section>
     <footer class="modal-card-foot" id="movieModalfooter">
-      <button class="button is-success js-modal-trigger" data-target="modal-js-suggested-pairs" id="next-btn"
+      <button class="button is-success js-modal-trigger" data-target="modal-js-drinks" id="next-btn"
         type="submit">Next</button>
     </footer>
     </form>
@@ -108,72 +108,31 @@
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title">Select Drinks</p>
+      <p class="modal-card-title">Select Alcohol Type</p>
       <button class="delete" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
-      <div class="field has-addons">
-        <div class="control is-expanded">
-          <input class="input" id="drink-search" type="text" placeholder="Type Your Drink or Drink Category">
-        </div>
-        <div class="control">
-          <a class="button is-info" id="drink-search-btn">
-            Search
-          </a>
-        </div>
-      </div>
       <!-- dropdown menu for user choosing a drink category -->
       <div class="options" id="categories-list">
-        <div class="field is-grouped is-grouped-multiline" id="category-content">
-          <p class="control">
-            <a class="button" id="brandy-category">
-              Brandy
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="gin-category">
-              Gin
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="vodka-category">
-              Vodka
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="whiskey-category">
-              Whiskey
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="tequila-category">
-              Tequila
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="rum-category">
-              Rum
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="wine-category">
-              Wine
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="beer-category">
-              Beer
-            </a>
-          </p>
+        <!-- <form method="post" class="form" id="movieSearchbar"> -->
+          <!-- <input class="input" name="movieInput" id="movie-search" type="text" placeholder="enter name, genre, phrase"> -->
+        <div class="select">
+          <select id="chosen-category">
+            <option>Pick One</option>
+            <option value="Brandy">Brandy</option>
+            <option value ="Gin">Gin</option>
+            <option value="Vodka">Vodka</option>
+            <option value="Whiskey">Whiskey</option>
+            <option value="Tequila">Tequila</option>
+            <option value="Rum">Rum</option>
+
+          </select>
         </div>
       </div>
     </section>
     <footer class="modal-card-foot">
       <button class="button is-success js-modal-trigger" data-target="modal-js-suggested-pairs"
-        id="next-btn">Next</button>
-      <button class="button">Cancel</button>
-      
-      <button class="button" data-target="#" id="we-decide-btn">Let Us Decide For You!</button>
+        id="choose-alc">Next</button>
     </footer>
   </div>
 </div>
@@ -203,7 +162,16 @@
           </div>
           <div class="column">
             Beverage
-            <p><div id="userDrink"></div></img>
+            <p><div id="drinkRec1"></div>
+            </p>
+            <p>
+            <div id="drinkRec2"></div>
+            </p>
+            <div id="drinkRec3"></div>
+            </p>
+            <div id="drinkRec4"></div>
+            </p>
+            <div id="drinkRec5"></div>
             </p>
           </div>
         </div>
