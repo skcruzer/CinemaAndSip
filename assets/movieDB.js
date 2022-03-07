@@ -37,13 +37,13 @@ export async function currentPopular(page = randomPopularPage) {
 
 export async function presentPosters() {
   const movies = await currentPopular()
-  // console.log(homeScreenbg)
+  console.log(homeScreenbg)
   homeScreenbg.innerHTML = movies?.map((movie) => singlePoster(movie)).join("")
 
 // movie suggestion is also taken from popular movies, a movie is randomly selected from the 12 movies that are loaded every time
 
   suggestedMovie.innerHTML = movies?.map((movie) => singleMovsuggestion(movie))[randomPopularPage]
-  // console.log(suggestedMovie)
+  console.log(suggestedMovie)
 }
 
 function singlePoster(movie) {
@@ -57,20 +57,18 @@ function singlePoster(movie) {
 //returns a single image for the suggestion, but with a different div than the background posters, this image can have it's own animations/effects
 
 }
+
 function singleMovsuggestion(movie) {
-  // console.log(config.api_base_url + movie.original_title)
   return (
     `
             <img src="${config.image_base_url + movie?.poster_path}" id="suggestionPoster" class="img-fluid">
             <div id="" style="font-size: 24px">${movie.original_title}</div>
-            <div id="" style="font-size: 24px">${movie.release_date}</div>
+            <div id="dailyMovsuggestion" style="font-size: 24px">${movie.release_date}</div>
         `
 
   )
-
+  
 }
-
-
 //takes text and value for dropdown movie menu, each text corresponds to a genre id
 //value is equal to the dropdown selection, link + value pulls up popular movies from the selected genre
 const element = document.getElementById("movieDropdown");
@@ -120,18 +118,6 @@ document.querySelector('form.form').addEventListener('submit', function (e) {
         <img src="${config.image_base_url + data.results[2].backdrop_path}" id="userMovieposter3" class="img-fluid">
         <div id="userMovieoptions3" style="font-size: 24px">${data.results[2].original_title}</div>
         <div id="userMovieoptions3date" style="font-size: 10px">${data.results[2].release_date}</div>
-        `
-          movieRecbox4.innerHTML =
-            `
-        <img src="${config.image_base_url + data.results[3].backdrop_path}" id="userMovieposter4" class="img-fluid">
-        <div id="userMovieoptions4" style="font-size: 24px">${data.results[3].original_title}</div>
-        <div id="userMovieoptions4date" style="font-size: 10px">${data.results[3].release_date}</div>
-        `
-          movieRecbox5.innerHTML =
-            `
-        <img src="${config.image_base_url + data.results[4].backdrop_path}" id="userMovieposter5" class="img-fluid">
-        <div id="userMovieoptions5" style="font-size: 24px">${data.results[4].original_title}</div>
-        <div id="userMovieoptions5date" style="font-size: 10px">${data.results[4].release_date}</div>
         `
         console.log(data.results)
           console.log(data.results[0].original_title)
