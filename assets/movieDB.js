@@ -49,7 +49,10 @@ export async function presentPosters() {
 function singlePoster(movie) {
   return (
     `
+            <img src="images/cinemabg.jpg" id="cinemaBG" class="img-fluid">
             <img src="${config.image_base_url + movie?.poster_path}" id="posterBack" class="img-fluid">
+
+            
         `
         
   )
