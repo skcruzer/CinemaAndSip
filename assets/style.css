@@ -51,6 +51,15 @@ body, html {
   color: white;
 }
 
+#howToBtn {
+  z-index: 1;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: gray;
+  color: white;
+}
+
 @keyframes blinker {
   50% {
     background-color: rgb(46, 116, 196);
@@ -148,22 +157,28 @@ body, html {
   -ms-animation: fadeIn 1s;
 }
 
-
-#next-btn {
-  background-color: rgb(48, 134, 205);
+#modalHead {
+  background-color: rgb(4, 40, 61);
 }
 
-#choose-alc {
-  background-color: rgb(48, 134, 205);
+#modalTitle {
+  color: white;
 }
 
-#categories-list {
-  padding-right: 1.4rem;
+#next-btn, #choose-alc {
+  background-color: rgb(4, 40, 61);
 }
 
+.apiWebsite {
+  padding-right: 2rem;
+}
+
+.apiWebsites {
+  padding-left: 2rem;
+}
 
 #footer {
-  margin-top: 20rem;
+  margin-top: 10rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
@@ -275,4 +290,19 @@ body, html {
   background-color: black;
   color: yellow;
   transform: scale(1.25);
+}
+
+/* BEGIN HOW TO PAGE STYLING */
+
+#howToTitle {
+  padding-top: 4rem;
+}
+
+#app, #cardBox {
+  padding: 1rem;
+}
+
+#homeBtn {
+  background-color: gray;
+  color: white;
 }
