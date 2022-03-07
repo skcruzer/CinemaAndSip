@@ -87,7 +87,7 @@ body, html {
   bottom: 50px;
   left: 50%;
   transform: translate(-50%, 0);
-  padding: 90px;
+  padding-top: 90px;
 }
 
 @keyframes fadeIn {
@@ -148,40 +148,19 @@ body, html {
   -ms-animation: fadeIn 1s;
 }
 
-#navbarSearch {
-  margin: 1rem;
-}
-
-#navbar-menu {
-  font-weight: 500;
-  margin-right: 0.2rem;
-
-}
-
-#navbar-drop {
-  margin-right: 0.2rem;
-}
-
-.navbar-item:hover .navbar-dropdown {
-  display: block;
-}
 
 #next-btn {
   background-color: rgb(48, 134, 205);
 }
 
-#we-decide-btn {
-  background-color: lightslategray;
-  color: white;
+#choose-alc {
+  background-color: rgb(48, 134, 205);
 }
 
 #categories-list {
   padding-right: 1.4rem;
 }
 
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
 
 #footer {
   margin-top: 20rem;
@@ -239,12 +218,31 @@ body, html {
   }
 }
 
-#movieRec1 {
-  background-color: #302244;
-  border: 5px solid transparent;
-  border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
-  border-image-slice: 1;
-  height: 200px;
-  margin: 20px auto;
-  width: 200px;
+
+#suggDrink1Img, #suggDrink2Img, #suggDrink3Img {
+  height: 105px;
+  width: 150px;
+}
+
+#pairing1, #pairing2, #pairing3 {
+  border: solid white 2px;
+  margin: 5px;
+  background-color: rgb(1, 22, 39);
+  color: white;
+}
+
+#userSuggestiontitle {
+  border: 2px;
+  margin: 5px;
+  background-color: rgb(1, 22, 39);
+  color: white;
+  font-size: 24px;
+}
+
+#pairing1:hover, #pairing2:hover, #pairing3:hover {
+  border: solid yellow 2px;
+  margin: 5px;
+  background-color: black;
+  color: yellow;
+  transform: scale(1.25);
 }

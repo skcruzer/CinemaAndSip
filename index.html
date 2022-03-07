@@ -10,43 +10,6 @@
   <link rel="stylesheet" href="assets/style.css">
 </head>
 
-<!-- navbar -->
-<nav class="navbar" role="navigation" aria-label="dropdown navigation">
-  <div class="navbar-menu">
-
-    <!-- searchbar; if we want one, have it on left side or next to dropdown? -->
-    <div>
-      <input class="input is-rounded" id="navbarSearch" type="text" placeholder="Search">
-    </div>
-
-    <!-- Dropdown menu in navbar for quick navigation through site -->
-    <div class="navbar-end">
-      <div class="navbar-item has-dropdown">
-        <a class="navbar-link" id="navbar-menu">Quickview</i></a>
-
-        <!-- navbar burger for mobile -->
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-        <div class="navbar-dropdown is-right" id="navbar-drop">
-          <a href="#suggestionBox" class="navbar-item">
-            Suggested Pairings
-          </a>
-          <a href="#startBtn" class="navbar-item">
-            Flick or Beverage?
-          </a>
-          <hr class="navbar-divider">
-          <div class="navbar-item">
-            Contact Us
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav>
-
 <!-- main title of page, title + description -->
 
 <body class="has-background">
@@ -75,11 +38,12 @@
       <div class="field has-addons">
         <div class="control is-expanded">
 
-          <form method="post" class="form" id="movieSearchbar">
+          <form method="" class="form" id="movieSearchbar">
           
             <!-- movie dropdown selection, value is equal to genre ID -->
+            <div class="select">
           <select name="movieDropdown" id="movieDropdown">
-            <option value="">--select--</option>
+            <option value="">Pick One</option>
             <option value="28">Action</option>
             <option value="35">Comedy</option>
             <option value="18">Drama</option>
@@ -91,7 +55,7 @@
             <option value="37">Western</option>
             <option value="53">Thriller</option>
           </select>
-          
+          </div>
         </div>
       </div>
     </section>
@@ -140,42 +104,23 @@
 <div class="modal" id="modal-js-suggested-pairs">
   <div class="modal-background"></div>
   <div class="modal-content">
-    <div id="suggestionBox" class="container-fluid-1">
-      <div class="box is-size-3 is-size-4-mobile is-family-monospace">
-        <div class="columns">
-          <div class="column">
-            Films:
-            <p><div id="movieRec1"></div></p>
-            <p>
-              <br>
-            <div id="movieRec2"></div>
-            </p>
-            <br>
-            <div id="movieRec3"></div>
-            </p>
-            <br>
-            <div id="movieRec4"></div>
-            </p>
-            <br>
-            <div id="movieRec5"></div>
-            </p>
-          </div>
-          <div class="column">
-            Beverage
-            <p><div id="drinkRec1"></div>
-            </p>
-            <p>
-            <div id="drinkRec2"></div>
-            </p>
-            <div id="drinkRec3"></div>
-            </p>
-            <div id="drinkRec4"></div>
-            </p>
-            <div id="drinkRec5"></div>
-            </p>
-          </div>
-        </div>
-      </div>
+    <div id="suggestionBox" class="container is-fluid">
+      <!-- <div class="box is-size-3 is-size-4-mobile is-family-monospace"> -->
+    <h1 id="userSuggestiontitle">&darr;Suggested Pairings&darr;</h1>
+    <br>
+        <div class="columns is-mobile is-justify-content-center is-vcentered is-fluid" id="pairing1">
+            <div class="column" id="movieRec1"></div>
+            <div class="column" id="drinkRec1"></div>
+            </div>
+        <div class="columns is-mobile is-justify-content-center is-vcentered is-fluid" id="pairing2">
+            <div class="column" id="movieRec2"></div>
+            <div class="column" id="drinkRec2"></div>
+            </div>
+        <div class="columns is-mobile is-justify-content-center is-vcentered is-fluid" id="pairing3">
+            <div class="column" id="movieRec3"></div>
+            <div class="column" id="drinkRec3"></div>
+            </div>
+      <!-- </div> -->
     </div>
   </div>
   <button class="modal-close is-large" aria-label="close"></button>
