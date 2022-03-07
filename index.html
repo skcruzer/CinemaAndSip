@@ -14,43 +14,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 </head>
 
-<!-- navbar -->
-<nav class="navbar" role="navigation" aria-label="dropdown navigation">
-  <div class="navbar-menu">
-
-    <!-- searchbar; if we want one, have it on left side or next to dropdown? -->
-    <div>
-      <input class="input is-rounded" id="navbarSearch" type="text" placeholder="Search">
-    </div>
-
-    <!-- Dropdown menu in navbar for quick navigation through site -->
-    <div class="navbar-end">
-      <div class="navbar-item has-dropdown">
-        <a class="navbar-link" id="navbar-menu">Quickview</i></a>
-
-        <!-- navbar burger for mobile -->
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-        <div class="navbar-dropdown is-right" id="navbar-drop">
-          <a href="#suggestionBox" class="navbar-item">
-            Suggested Pairings
-          </a>
-          <a href="#startBtn" class="navbar-item">
-            Flick or Beverage?
-          </a>
-          <hr class="navbar-divider">
-          <div class="navbar-item">
-            Contact Us
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav>
-
 <!-- main title of page, title + description -->
 
 <body class="has-background">
@@ -58,6 +21,7 @@
 <div class="box is-size-1 is-size-2-mobile is-family-monospace has-text-weight-bold">
   <h1 id="centerMaintitle">Cinema & Sip</h1>
   <p class="is-size-4 is-size-7-mobile" id="titleDescription">Find the perfect pairing of movie and beverage</p>
+  
 </div>
 
 <!-- background posters div, this is set to z: -1, so it is behind everything below line 26 -->
@@ -66,104 +30,44 @@
     <div id="movies" class="column is-12"></div>
   </div>
 
-
-
 <!-- modal for movies -->
 <div class="modal" id="modal-js-movies">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title">Select Movies</p>
+      <p class="modal-card-title">Choose Movie Genre</p>
       <button class="delete" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
       <div class="field has-addons">
         <div class="control is-expanded">
-          <input class="input" id="movie-search" type="text" placeholder="Type Your Movie or Movie Category">
-        </div>
-        <div class="control">
-          <a class="button is-info" id="movie-search-btn">
-            Search
-          </a>
-        </div>
-      </div>
-      <!-- select buttons menu for user choosing a movie category -->
-      <div class="options" id="categories-list">
-        <div class="field is-grouped is-grouped-multiline" id="category-content">
-          <p class="control">
-            <a class="button" id="most-popular-category">
-              Most Popular
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="action-category">
-              Action
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="adventure-category">
-              Adventure
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="animation-category">
-              Animation
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="comedy-category">
-              Comedy
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="doc-category">
-              Documentary
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="drama-category">
-              Drama
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="family-category">
-              Family
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="fantasy-category">
-              Fantasy
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="horror-category">
-              Horror
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="romance-category">
-              Romance
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="science-fiction-category">
-              Science Fiction
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="thriller-category">
-              Thriller
-            </a>
-          </p>
+
+          <form method="" class="form" id="movieSearchbar">
+          
+            <!-- movie dropdown selection, value is equal to genre ID -->
+            <div class="select">
+          <select name="movieDropdown" id="movieDropdown">
+            <option value="">Pick One</option>
+            <option value="28">Action</option>
+            <option value="35">Comedy</option>
+            <option value="18">Drama</option>
+            <option value="16">Animation</option>
+            <option value="27">Horror</option>
+            <option value="12">Adventure</option>
+            <option value="878">Science Fiction</option>
+            <option value="99">Documentary</option>
+            <option value="37">Western</option>
+            <option value="53">Thriller</option>
+          </select>
+          </div>
         </div>
       </div>
     </section>
-    <footer class="modal-card-foot">
-      <button class="button is-success js-modal-trigger" data-target="modal-js-drinks" id="next-btn">Next</button>
-      <button class="button">Cancel</button>
-      <!-- link to our suggested pairings -->
-      <button class="button" data-target="#" id="we-decide-btn">Let Us Decide For You!</button>
+    <footer class="modal-card-foot" id="movieModalfooter">
+      <button class="button is-success js-modal-trigger" data-target="modal-js-drinks" id="next-btn"
+        type="submit">Next</button>
     </footer>
+    </form>
   </div>
 </div>
 
@@ -172,72 +76,31 @@
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title">Select Drinks</p>
+      <p class="modal-card-title">Select Alcohol Type</p>
       <button class="delete" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
-      <div class="field has-addons">
-        <div class="control is-expanded">
-          <input class="input" id="drink-search" type="text" placeholder="Type Your Drink or Drink Category">
-        </div>
-        <div class="control">
-          <a class="button is-info" id="drink-search-btn">
-            Search
-          </a>
-        </div>
-      </div>
       <!-- dropdown menu for user choosing a drink category -->
       <div class="options" id="categories-list">
-        <div class="field is-grouped is-grouped-multiline" id="category-content">
-          <p class="control">
-            <a class="button" id="brandy-category">
-              Brandy
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="gin-category">
-              Gin
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="vodka-category">
-              Vodka
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="whiskey-category">
-              Whiskey
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="tequila-category">
-              Tequila
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="rum-category">
-              Rum
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="wine-category">
-              Wine
-            </a>
-          </p>
-          <p class="control">
-            <a class="button" id="beer-category">
-              Beer
-            </a>
-          </p>
+        <!-- <form method="post" class="form" id="movieSearchbar"> -->
+          <!-- <input class="input" name="movieInput" id="movie-search" type="text" placeholder="enter name, genre, phrase"> -->
+        <div class="select">
+          <select id="chosen-category">
+            <option>Pick One</option>
+            <option value="Brandy">Brandy</option>
+            <option value ="Gin">Gin</option>
+            <option value="Vodka">Vodka</option>
+            <option value="Whiskey">Whiskey</option>
+            <option value="Tequila">Tequila</option>
+            <option value="Rum">Rum</option>
+
+          </select>
         </div>
       </div>
     </section>
     <footer class="modal-card-foot">
       <button class="button is-success js-modal-trigger" data-target="modal-js-suggested-pairs"
-        id="next-btn">Next</button>
-      <button class="button">Cancel</button>
-      <!-- link to our suggested pairings -->
-      <button class="button" data-target="#" id="we-decide-btn">Let Us Decide For You!</button>
+        id="choose-alc">Next</button>
     </footer>
   </div>
 </div>
@@ -245,6 +108,7 @@
 <div class="modal" id="modal-js-suggested-pairs">
   <div class="modal-background"></div>
   <div class="modal-content">
+<<<<<<< HEAD
     <div id="suggestionBox" class="container-fluid-1">
       <div class="box is-size-3 is-size-4-mobile is-family-monospace">
         <!-- <h1 id="suggestedPairing"></h1> -->
@@ -261,12 +125,30 @@
           </div>
         </div>
       </div>
+=======
+    <div id="suggestionBox" class="container is-fluid">
+      <!-- <div class="box is-size-3 is-size-4-mobile is-family-monospace"> -->
+    <h1 id="userSuggestiontitle">&darr;Suggested Pairings&darr;</h1>
+    <br>
+        <div class="columns is-mobile is-justify-content-center is-vcentered is-fluid" id="pairing1">
+            <div class="column" id="movieRec1"></div>
+            <div class="column" id="drinkRec1"></div>
+            </div>
+        <div class="columns is-mobile is-justify-content-center is-vcentered is-fluid" id="pairing2">
+            <div class="column" id="movieRec2"></div>
+            <div class="column" id="drinkRec2"></div>
+            </div>
+        <div class="columns is-mobile is-justify-content-center is-vcentered is-fluid" id="pairing3">
+            <div class="column" id="movieRec3"></div>
+            <div class="column" id="drinkRec3"></div>
+            </div>
+      <!-- </div> -->
+>>>>>>> bc7dc1b2704c23a2cf45f91937f76899338e8761
     </div>
   </div>
   <button class="modal-close is-large" aria-label="close"></button>
 </div>
 </div>
-
 <!-- suggestion box, columns set to mobile so they will not stack -->
 
 <div id="suggestionBox" class="container-fluid-1">
@@ -323,7 +205,9 @@
 </footer>
 
   <script src="assets/script.js"></script>
-  <script src="assets/popularPosters.js" type="module"></script>
+  <script src="assets/movieDB.js" type="module"></script>
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@creativebulma/bulma-tooltip@1.0.2/dist/bulma-tooltip.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 </html>
