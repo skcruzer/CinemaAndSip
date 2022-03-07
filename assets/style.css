@@ -264,7 +264,7 @@ body, html {
   margin-right: 30px;
   border-radius: 50%;
 
-#suggDrink1Img, #suggDrink2Img, #suggDrink3Img {
+}suggDrink1Img, #suggDrink2Img, #suggDrink3Img {
   height: 105px;
   width: 150px;
 }
