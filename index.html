@@ -15,7 +15,7 @@
 <body class="has-background">
 <div id="titleBox" class="container-fluid">
 <div class="box is-size-1 is-size-2-mobile is-family-monospace has-text-weight-bold">
-  <h1 id="centerMaintitle">Cinema & Sip</h1>
+  <h1 id="centerMaintitle"><i class="fa-solid fa-film"></i> Cinema & Sip <i class="fa-solid fa-whiskey-glass"></i></h1>
   <p class="is-size-4 is-size-7-mobile" id="titleDescription">Find the perfect pairing of movie and beverage</p>
   
 </div>
@@ -30,8 +30,8 @@
 <div class="modal" id="modal-js-movies">
   <div class="modal-background"></div>
   <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Choose Movie Genre</p>
+    <header class="modal-card-head" id="modalHead">
+      <p class="modal-card-title" id="modalTitle">Choose Movie Genre</p>
       <button class="delete" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
@@ -71,8 +71,8 @@
 <div class="modal" id="modal-js-drinks">
   <div class="modal-background"></div>
   <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Select Alcohol Type</p>
+    <header class="modal-card-head" id="modalHead">
+      <p class="modal-card-title" id="modalTitle">Select Alcohol Type</p>
       <button class="delete" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
@@ -148,7 +148,11 @@
   <button id="startBtn" class="mt-5 js-modal-trigger button is-large is-rounded" data-target="modal-js-movies">
     Get Started
   </button>
-  
+  <br><br><br><br><br><br>
+  <button id="howToBtn" class="mt-5 js-modal-trigger button is-medium is-rounded"
+    onclick="window.location.href='howTo.html'">
+    How To &nbsp;<i class="fa-solid fa-film"></i> & <i class="fa-solid fa-whiskey-glass"></i></strong>
+  </button>
   
 
 </div>
@@ -158,6 +162,13 @@
 <!-- footer -->
 <footer class="footer" id="footer">
   <div class="content has-text-centered">
+    <p>
+      <a href="https://www.themoviedb.org/?language=en-US" target="_blank"><img
+          src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
+          alt="Link to The MovieDB" style="width:100px;height:100px;" class="apiWebsite"></a>
+      <a href="https://www.thecocktaildb.com/" target="_blank"><img src="https://www.thecocktaildb.com/images/logo.png"
+          alt="Link to The CocktailDB" style="width:240px;height:60px;" class="apiWebsites"></a>
+    </p>
     <p>
       <strong><i class="fa-solid fa-film"></i> Cinema & Sip <i class="fa-solid fa-whiskey-glass"></i></strong> by
       Shaun, Zach, Chris & Sean
