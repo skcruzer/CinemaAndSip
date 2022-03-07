@@ -1,2 +1,5 @@
 # CinemaAndSip
-### [Deployed Site](https://st12345678910.github.io/CinemaAndSip/)
+<p align="center">
+    ### [Deployed Site](https://st12345678910.github.io/CinemaAndSip/)
+</p>
+
