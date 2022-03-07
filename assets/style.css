@@ -27,6 +27,16 @@ body, html {
 
 #posterBack {
   border: solid black 2px;
+  opacity: 0.6;
+  -webkit-transition: opacity 3s ease-in;
+  -moz-transition: opacity 3s ease-in;
+  -o-transition: opacity 3s ease-in;
+  -ms-transition: opacity 3s ease-in;
+  transition: opacity 3s ease-in;
+}
+
+#cinemaBG {
+  border: solid black 2px;
   opacity: 0.4;
   -webkit-transition: opacity 3s ease-in;
   -moz-transition: opacity 3s ease-in;
