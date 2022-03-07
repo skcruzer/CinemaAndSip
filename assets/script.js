@@ -377,4 +377,3 @@ document.getElementById("choose-alc").addEventListener('click', function (e){
   });
 
 })
-
